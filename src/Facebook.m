@@ -658,6 +658,15 @@ static void *finishedContext = @"finishedContext";
                 delegate:delegate];
 }
 
+
+// Add to Facebook.m
+- (void)cancelPendingRequest:(FBRequest *) releasingRequest{
+    [releasingRequest.connection cancel];
+    [releasingRequest removeObserver:self forKeyPath:requestFinishedKeyPath];
+    [_requests removeObject:releasingRequest];    
+}
+
+
 /**
  * Generate a UI dialog for the request action.
  *

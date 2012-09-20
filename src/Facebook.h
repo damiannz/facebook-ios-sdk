@@ -90,6 +90,8 @@
                      andHttpMethod:(NSString *)httpMethod
                        andDelegate:(id <FBRequestDelegate>)delegate;
 
+- (void)cancelPendingRequest:(FBRequest *)releasingRequest;
+
 - (void)dialog:(NSString *)action
    andDelegate:(id<FBDialogDelegate>)delegate;
 
